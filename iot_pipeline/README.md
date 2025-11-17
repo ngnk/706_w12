@@ -1,27 +1,27 @@
-# 🌡️ IoT Environmental Monitoring System
+# IoT Environmental Monitoring System
 ## Real-Time Data Streaming with Apache Kafka & Machine Learning
 
 A production-grade IoT data streaming system featuring real-time sensor monitoring, windowed stream processing, and ML-based anomaly detection.
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 This system demonstrates a complete real-time data pipeline for environmental monitoring across multiple locations. It processes sensor data streams through Apache Kafka, performs windowed aggregations, applies machine learning for anomaly detection, and visualizes everything in an interactive dashboard.
 
 ### Key Features
 
-✅ **Real-time Data Streaming**: Apache Kafka message broker with producer-consumer architecture  
-✅ **Stream Processing**: Windowed aggregations (1-minute tumbling windows)  
-✅ **ML Anomaly Detection**: Isolation Forest for unsupervised anomaly detection with online learning  
-✅ **Live Dashboard**: Interactive Streamlit dashboard with real-time updates  
-✅ **Multi-sensor Monitoring**: Temperature, humidity, air quality, pressure, CO2 sensors  
-✅ **Multiple Locations**: Server rooms, offices, warehouses, laboratories, manufacturing floors  
-✅ **Production-Ready**: Containerized with Docker, comprehensive error handling, database indexing
+**Real-time Data Streaming**: Apache Kafka message broker with producer-consumer architecture  
+**Stream Processing**: Windowed aggregations (1-minute tumbling windows)  
+**ML Anomaly Detection**: Isolation Forest for unsupervised anomaly detection with online learning  
+**Live Dashboard**: Interactive Streamlit dashboard with real-time updates  
+**Multi-sensor Monitoring**: Temperature, humidity, air quality, pressure, CO2 sensors  
+**Multiple Locations**: Server rooms, offices, warehouses, laboratories, manufacturing floors  
+**Production-Ready**: Containerized with Docker, comprehensive error handling, database indexing
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────┐
@@ -75,13 +75,7 @@ This system demonstrates a complete real-time data pipeline for environmental mo
 
 ---
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Docker and Docker Compose
-- Python 3.9+
-- 4GB+ RAM
+## Quick Start
 
 ### Installation
 
@@ -138,7 +132,7 @@ streamlit run dashboard.py
 
 ---
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 ### 1. Real-Time Monitoring Tab
 - Live sensor readings from all locations
@@ -165,9 +159,9 @@ streamlit run dashboard.py
 
 ---
 
-## 🎓 Bonus Features Implemented
+## Bonus Features Implemented
 
-### ✅ Bonus #1: Stream Processing (10%+)
+### Bonus #1: Stream Processing (10%+)
 
 **Implementation**: `stream_processor.py`
 
@@ -184,7 +178,7 @@ streamlit run dashboard.py
 - Output: `sensor_aggregates` table in PostgreSQL
 - Metrics computed: AVG, MIN, MAX, STDDEV, COUNT, ANOMALY_COUNT
 
-### ✅ Bonus #2: Advanced Machine Learning (10%+)
+### Bonus #2: Advanced Machine Learning (10%+)
 
 **Implementation**: `ml_detector.py`
 
@@ -209,56 +203,7 @@ streamlit run dashboard.py
 
 ---
 
-## 📁 Project Structure
-
-```
-iot-streaming-system/
-│
-├── docker-compose.yml          # Infrastructure setup (Kafka, PostgreSQL)
-├── requirements.txt            # Python dependencies
-├── README.md                   # This file
-│
-├── producer.py                 # IoT sensor data generator
-├── consumer.py                 # Kafka consumer → PostgreSQL
-├── stream_processor.py         # Windowed aggregations (Flink-style)
-├── ml_detector.py             # ML-based anomaly detection
-├── dashboard.py               # Streamlit visualization
-│
-├── flink_jobs/                # Apache Flink jobs (optional)
-│   └── stream_processor.py    # PyFlink implementation
-│
-└── models/                    # Saved ML models (auto-generated)
-```
-
----
-
-## 🔧 Configuration
-
-### Sensor Simulation
-
-Edit `producer.py` to customize:
-- Sensor types and base values
-- Location-specific offsets
-- Anomaly injection rate (default: 5%)
-- Data generation frequency
-
-### Stream Processing
-
-Edit `stream_processor.py` to adjust:
-- Window size (default: 60 seconds)
-- Aggregation interval (default: check every 10 seconds)
-
-### ML Detection
-
-Edit `ml_detector.py` to tune:
-- Contamination rate (expected anomaly %)
-- Training window size
-- Retrain interval
-- Feature engineering logic
-
----
-
-## 📊 Database Schema
+## Database Schema
 
 ### `sensor_readings`
 Raw sensor data from Kafka consumer.
@@ -302,87 +247,5 @@ ML model predictions and scores.
 | is_anomaly | BOOLEAN | ML prediction |
 | anomaly_score | NUMERIC(10,6) | Isolation Forest score |
 | rule_based_anomaly | BOOLEAN | Original rule flag |
-
----
-
-## 🎯 Assignment Requirements Checklist
-
-- ✅ **Custom data domain**: IoT Environmental Monitoring (not e-commerce)
-- ✅ **Synthetic event generation**: Realistic sensor data with patterns and noise
-- ✅ **Apache Kafka streaming**: Producer-consumer architecture
-- ✅ **Database storage**: PostgreSQL with optimized schema
-- ✅ **Live dashboard**: Streamlit with auto-refresh
-- ✅ **BONUS: Stream Processing (10%+)**: Windowed aggregations with statistical analysis
-- ✅ **BONUS: ML Modeling (10%+)**: Isolation Forest with online learning
-
----
-
-## 🔍 Key Technical Highlights
-
-### 1. Realistic Data Generation
-- Time-based patterns (daily cycles using sine functions)
-- Location-specific baselines
-- Slow trend drift simulation
-- Controlled anomaly injection (5%)
-- Multiple sensor types with appropriate units
-
-### 2. Stream Processing Excellence
-- True windowed operations (tumbling windows)
-- Real-time aggregation computation
-- Statistical anomaly detection using Z-scores
-- Efficient memory management
-- Low-latency processing
-
-### 3. Advanced ML Implementation
-- Unsupervised learning (no labeled data required)
-- Online learning with periodic retraining
-- Rich feature engineering (7 features)
-- Sequential pattern analysis
-- Comparative evaluation (ML vs rule-based)
-
-### 4. Production-Quality Engineering
-- Comprehensive error handling
-- Database indexing for performance
-- Connection pooling
-- Graceful shutdown handling
-- Detailed logging and monitoring
-
----
-
-## 🧪 Testing the System
-
-### Verify Data Flow
-
-1. **Check Kafka topic**:
-```bash
-docker exec -it kafka kafka-console-consumer \
-  --bootstrap-server localhost:9092 \
-  --topic iot_sensors --from-beginning --max-messages 5
-```
-
-2. **Query raw readings**:
-```sql
-SELECT sensor_type, location, value, anomaly 
-FROM sensor_readings 
-ORDER BY timestamp DESC 
-LIMIT 10;
-```
-
-3. **Check aggregates**:
-```sql
-SELECT window_start, location, sensor_type, avg_value, count_readings 
-FROM sensor_aggregates 
-ORDER BY window_start DESC 
-LIMIT 10;
-```
-
-4. **ML predictions**:
-```sql
-SELECT sensor_type, is_anomaly, anomaly_score, rule_based_anomaly 
-FROM ml_anomaly_predictions 
-WHERE is_anomaly = TRUE 
-ORDER BY timestamp DESC 
-LIMIT 10;
-```
 
 ---
