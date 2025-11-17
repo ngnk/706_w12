@@ -103,41 +103,39 @@ pip install -r requirements.txt
 python producer.py
 ```
 
-[SCREENSHOT HERE]
+![Result](producer.png)
 
 **Terminal 2 - Consumer** (stores raw data):
 ```bash
 python consumer.py
 ```
 
-[SCREENSHOT HERE]
+![Result](consumer.png)
 
 **Terminal 3 - Stream Processor** (windowed aggregations):
 ```bash
 python stream_processor.py
 ```
 
-[SCREENSHOT HERE]
+![Result](stream.png)
 
 **Terminal 4 - ML Detector** (anomaly detection):
 ```bash
 python ml_detector.py
 ```
 
-[SCREENSHOT HERE]
+![Result](detector.png)
 
 **Terminal 5 - Dashboard** (visualization):
 ```bash
 streamlit run dashboard.py
 ```
 
-[SCREENSHOT HERE]
+![Result](dashboard.png)
 
 5. **Access the dashboard**
 - Open browser to: http://localhost:8501
 - Dashboard auto-refreshes every 10 seconds
-
-[SCREENSHOT HERE]
 
 ---
 
@@ -149,7 +147,7 @@ streamlit run dashboard.py
 - Time series visualization
 - Anomaly distribution by type and location
 
-[SCREENSHOT HERE]
+![Result](realtime.png)
 
 ### 2. Windowed Aggregates Tab
 - Stream processing results (1-minute windows)
@@ -157,7 +155,7 @@ streamlit run dashboard.py
 - Statistical trends over time
 - Anomaly counts per window
 
-[SCREENSHOT HERE]
+![Result](window.png)
 
 ### 3. ML Anomaly Detection Tab
 - Machine learning predictions
@@ -165,14 +163,14 @@ streamlit run dashboard.py
 - Anomaly score distributions
 - Detection method agreement metrics
 
-[SCREENSHOT HERE]
+![Result](anomaly.png)
 
 ### 4. Analytics Tab
 - Sensor correlation heatmaps
 - Statistics by location
 - Advanced analytics and insights
 
-[SCREENSHOT HERE]
+![Result](sensor.png)
 
 ---
 
@@ -188,12 +186,6 @@ streamlit run dashboard.py
 - **Statistical anomaly detection**: Z-score based detection (3-sigma threshold)
 - **Multi-sensor correlation**: Tracks patterns across different sensor types
 - **Low-latency processing**: Sub-second processing with efficient windowing
-
-**Technical Details**:
-- Windowing: Tumbling windows of 60 seconds
-- Aggregation keys: (location, sensor_type)
-- Output: `sensor_aggregates` table in PostgreSQL
-- Metrics computed: AVG, MIN, MAX, STDDEV, COUNT, ANOMALY_COUNT
 
 ### Machine Learning
 
