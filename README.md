@@ -206,6 +206,28 @@ streamlit run dashboard.py
 
 ## Database Schema
 
+To access the database (with a client like DBeaver), follow these steps:
+
+#### Connection Parameters
+- **Host**: `localhost`
+- **Port**: `5432`
+- **Database**: `iot_db`
+- **Username**: `iot_user`
+- **Password**: `iot_password`
+
+#### Setup Instructions
+1. Open your database client
+2. Create a new PostgreSQL connection
+3. Enter the connection parameters above
+4. Connect and browse tables
+
+![Result](database.png)
+
+### Database Schema
+- **ml_anomaly_predictions**: Stores ML model predictions and anomaly scores
+- **sensor_readings**: Raw sensor data from IoT devices
+- **flink_processed**: Stream-processed data from Apache Flink
+
 ### `sensor_readings`
 Raw sensor data from Kafka consumer.
 
