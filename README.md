@@ -78,7 +78,7 @@ It processes sensor data streams through Apache Kafka, performs windowed aggrega
 
 1. **Clone or download the project, CD into the IOT Folder**
 ```bash
-cd iot-streaming-system
+cd iot-pipeline
 ```
 
 2. **Start the infrastructure** (Kafka + PostgreSQL)
@@ -103,29 +103,41 @@ pip install -r requirements.txt
 python producer.py
 ```
 
+[SCREENSHOT HERE]
+
 **Terminal 2 - Consumer** (stores raw data):
 ```bash
 python consumer.py
 ```
+
+[SCREENSHOT HERE]
 
 **Terminal 3 - Stream Processor** (windowed aggregations):
 ```bash
 python stream_processor.py
 ```
 
+[SCREENSHOT HERE]
+
 **Terminal 4 - ML Detector** (anomaly detection):
 ```bash
 python ml_detector.py
 ```
+
+[SCREENSHOT HERE]
 
 **Terminal 5 - Dashboard** (visualization):
 ```bash
 streamlit run dashboard.py
 ```
 
+[SCREENSHOT HERE]
+
 5. **Access the dashboard**
 - Open browser to: http://localhost:8501
 - Dashboard auto-refreshes every 10 seconds
+
+[SCREENSHOT HERE]
 
 ---
 
