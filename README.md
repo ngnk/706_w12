@@ -76,7 +76,7 @@ It processes sensor data streams through Apache Kafka, performs windowed aggrega
 
 ### Installation
 
-1. **Clone or download the project**
+1. **Clone or download the project, CD into the IOT Folder**
 ```bash
 cd iot-streaming-system
 ```
