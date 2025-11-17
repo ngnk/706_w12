@@ -198,14 +198,6 @@ streamlit run dashboard.py
 - **Sequential pattern analysis**: Maintains 100-reading history per sensor
 - **Dual detection**: Compares ML predictions with rule-based anomalies
 
-**Technical Details**:
-- Algorithm: Isolation Forest (scikit-learn)
-- Contamination: 5% (expected anomaly rate)
-- Training window: 1000 samples per sensor type
-- Retrain interval: 5 minutes
-- Features: 7-dimensional feature vector
-- Performance tracking: Detection rates, anomaly counts per sensor type
-
 ---
 
 ## Database Schema
