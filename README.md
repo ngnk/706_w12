@@ -1,17 +1,12 @@
 ---
-# IDS 706: Data Engineering Systems: Week #12 Assignment
----
-## Real-Time Data Streaming with Apache Kafka & Machine Learning
-
-A production-grade IoT data streaming system featuring real-time sensor monitoring, windowed stream processing, and ML-based anomaly detection.
-
+# IDS 706: Week #12 Assignment
 ---
 
-## Project Overview
+This system demonstrates a complete real-time data pipeline for environmental monitoring across multiple locations. 
 
-This system demonstrates a complete real-time data pipeline for environmental monitoring across multiple locations. It processes sensor data streams through Apache Kafka, performs windowed aggregations, applies machine learning for anomaly detection, and visualizes everything in an interactive dashboard.
+It processes sensor data streams through Apache Kafka, performs windowed aggregations, applies machine learning for anomaly detection, and visualizes everything in an interactive dashboard.
 
-### Key Features
+### Features
 
 **Real-time Data Streaming**: Apache Kafka message broker with producer-consumer architecture  
 **Stream Processing**: Windowed aggregations (1-minute tumbling windows)  
@@ -77,7 +72,7 @@ This system demonstrates a complete real-time data pipeline for environmental mo
 
 ---
 
-## Quick Start
+## Setup
 
 ### Installation
 
@@ -134,7 +129,7 @@ streamlit run dashboard.py
 
 ---
 
-## Dashboard Features
+## Dashboard Walkthrough
 
 ### 1. Real-Time Monitoring Tab
 - Live sensor readings from all locations
@@ -142,11 +137,15 @@ streamlit run dashboard.py
 - Time series visualization
 - Anomaly distribution by type and location
 
+[SCREENSHOT HERE]
+
 ### 2. Windowed Aggregates Tab
 - Stream processing results (1-minute windows)
 - Average, min, max values per window
 - Statistical trends over time
 - Anomaly counts per window
+
+[SCREENSHOT HERE]
 
 ### 3. ML Anomaly Detection Tab
 - Machine learning predictions
@@ -154,16 +153,20 @@ streamlit run dashboard.py
 - Anomaly score distributions
 - Detection method agreement metrics
 
+[SCREENSHOT HERE]
+
 ### 4. Analytics Tab
 - Sensor correlation heatmaps
 - Statistics by location
 - Advanced analytics and insights
 
+[SCREENSHOT HERE]
+
 ---
 
-## Bonus Features Implemented
+## Additional Features
 
-### Bonus #1: Stream Processing (10%+)
+### Stream Processing
 
 **Implementation**: `stream_processor.py`
 
@@ -180,7 +183,7 @@ streamlit run dashboard.py
 - Output: `sensor_aggregates` table in PostgreSQL
 - Metrics computed: AVG, MIN, MAX, STDDEV, COUNT, ANOMALY_COUNT
 
-### Bonus #2: Advanced Machine Learning (10%+)
+### Machine Learning
 
 **Implementation**: `ml_detector.py`
 
